@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support TheApptimizer - Tech Education</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Support TheApptimizer</h1>
+                <p class="hero-description">Empowering the next generation of developers through accessible tech education. Your support helps create high-quality programming tutorials and resources.</p>
+                <div class="hero-buttons">
+                    <a href="#donate" class="cta-button">Support with Crypto</a>
+                    <a href="https://ko-fi.com/theapptimizer" target="_blank" rel="noopener noreferrer" class="kofi-button">
+                        <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi donations" class="kofi-img">
+                        Support on Ko-fi
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="donate" class="donate-section">
+            <div class="container">
+                <h2>Choose Your Preferred Crypto</h2>
+                <p class="section-subtitle">Every contribution supports free educational content</p>
+                <div class="crypto-grid">
+                    <div id="direct-payment-container" class="payment-container" style="display: none;">
+                        <div class="payment-card">
+                            <div class="payment-header">
+                                <div class="payment-icon">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <h3>Direct Payment</h3>
+                                <p class="payment-subtitle">Send crypto directly from your wallet</p>
+                            </div>
+                            <div class="payment-content">
+                                <div class="payment-input-group">
+                                    <div class="amount-input-wrapper">
+                                        <label for="payment-amount">Amount</label>
+                                        <input type="number" id="payment-amount" placeholder="0.00" min="0" step="any">
+                                    </div>
+                                    <div class="currency-select-wrapper">
+                                        <label for="payment-currency">Currency</label>
+                                        <select id="payment-currency">
+                                            <option value="ETH">ETH</option>
+                                            <option value="BUSD">BUSD</option>
+                                            <option value="BTC">BTC</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="network-info">
+                                    <span id="network-message">Connected to: <span id="current-network">Not connected</span></span>
+                                </div>
+                                <button id="send-payment-btn" class="payment-btn">
+                                    <i class="fas fa-paper-plane"></i> Send Payment
+                                </button>
+                                <div class="payment-info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span id="payment-message">Transaction will be processed on the selected network</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="crypto-card">
+                        <div class="crypto-icon">
+                            <i class="fab fa-bitcoin"></i>
+                        </div>
+                        <div class="crypto-info">
+                            <h3>Bitcoin (BTC)</h3>
+                            <div class="crypto-address" data-address="bc1qvd5hjc0m6y5u3vgyhgrw8xtdm7hp9r97xe9mwh">
+                                bc1qvd5hjc0m6y5u3vgyhgrw8xtdm7hp9r97xe9mwh
+                            </div>
+                            <div class="qr-container">
+                                <div class="qr-code"></div>
+                                <div class="qr-overlay">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>Click to show QR Code</span>
+                                </div>
+                            </div>
+                            <div class="button-group">
+                                <button class="copy-btn" onclick="copyToClipboard(this)">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                                <button class="qr-btn" onclick="toggleQR(this)">
+                                    <i class="fas fa-qrcode"></i> Show QR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crypto-card">
+                        <div class="crypto-icon">
+                            <i class="fab fa-ethereum"></i>
+                        </div>
+                        <div class="crypto-info">
+                            <h3>Ethereum (ETH)</h3>
+                            <div class="crypto-address" data-address="0x585298841595F28E599B2eBE5A60445a4A0cFF00">
+                                0x585298841595F28E599B2eBE5A60445a4A0cFF00
+                            </div>
+                            <div class="qr-container">
+                                <div class="qr-code"></div>
+                                <div class="qr-overlay">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>Click to show QR Code</span>
+                                </div>
+                            </div>
+                            <div class="button-group">
+                                <button class="copy-btn" onclick="copyToClipboard(this)">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                                <button class="qr-btn" onclick="toggleQR(this)">
+                                    <i class="fas fa-qrcode"></i> Show QR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crypto-card">
+                        <div class="crypto-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="crypto-info">
+                            <h3>BUSD (BNB Chain)</h3>
+                            <div class="crypto-address" data-address="0x585298841595F28E599B2eBE5A60445a4A0cFF00">
+                                0x585298841595F28E599B2eBE5A60445a4A0cFF00
+                            </div>
+                            <div class="qr-container">
+                                <div class="qr-code"></div>
+                                <div class="qr-overlay">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>Click to show QR Code</span>
+                                </div>
+                            </div>
+                            <div class="button-group">
+                                <button class="copy-btn" onclick="copyToClipboard(this)">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                                <button class="qr-btn" onclick="toggleQR(this)">
+                                    <i class="fas fa-qrcode"></i> Show QR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="./assets/profile-pic.png" alt="TheApptimizer Profile" class="profile-img" loading="lazy">
+                        <div class="social-links">
+                            <a href="https://youtube.com/@theapptimizer" class="social-link" title="YouTube" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://x.com/mehedy_hassan2" class="social-link" title="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://github.com/mehedyhassanratul" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h2>Why Support TheApptimizer?</h2>
+                        <div class="about-description">
+                            <p>
+                                Hi, I'm TheApptimizer! As a passionate student and tech content creator, I dedicate my time to creating helpful tutorials and tips across various platforms like Android, Windows, Linux, and Mac.
+                            </p>
+                            <p>
+                                Coming from a humble background, I support my family through the income from my YouTube content creation. Your support helps me continue creating high-quality tech tutorials while pursuing my studies.
+                            </p>
+                        </div>
+                        <div class="support-benefits">
+                            <h3>Your Support Helps Me:</h3>
+                            <ul class="benefits-list">
+                                <li>
+                                    <i class="fas fa-video"></i>
+                                    <span>Create more in-depth tech tutorials</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-laptop-code"></i>
+                                    <span>Cover new technologies and tools</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-camera"></i>
+                                    <span>Improve video production quality</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart"></i>
+                                    <span>Support my family's basic needs</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Continue my education journey</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="connect" class="connect-section">
+            <div class="container">
+                <h2>Connect Your Wallet</h2>
+                <p class="section-subtitle">Direct wallet connections for easier donations</p>
+                <div class="wallet-grid">
+                    <button class="wallet-btn" onclick="connectMetaMask()">
+                        <img src="assets/metamask.svg" alt="MetaMask" loading="lazy">
+                        <span>Connect MetaMask</span>
+                    </button>
+                    <button class="wallet-btn" onclick="connectTrustWallet()">
+                        <img src="assets/trustwallet.svg" alt="TrustWallet" loading="lazy">
+                        <span>Connect TrustWallet</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <h3>TheApptimizer</h3>
+                        <p>Building the future of tech education</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#donate">Donate</a>
+                        <a href="#about">About</a>
+                        <a href="#connect">Connect</a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://youtube.com/@theapptimizer" class="social-icon" title="YouTube" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://x.com/mehedy_hassan2" class="social-icon" title="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://github.com/mehedyhassanratul" class="social-icon" title="GitHub" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2023 TheApptimizer</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <div id="floating-wallet" class="floating-wallet">
+        <button class="floating-wallet-btn" onclick="connectMetaMask()">
+            <div class="wallet-icon">
+                <i class="fas fa-wallet"></i>
+            </div>
+            <span class="wallet-text">Connect Wallet</span>
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js" defer></script>
+    <script src="qr.js" defer></script>
+</body>
+</html>
